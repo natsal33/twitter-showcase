@@ -1,0 +1,43 @@
+.NavBar {
+  color: black;
+  height: 150px;
+  width: 100%;
+  padding: 20px;
+  position: sticky;
+  display: flex;
+  z-index: 1;
+  background-color: beige;
+  transition: 0.5s ease;
+  padding: 15px;
+}
+
+#navBarItemBox {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navBarItem {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 60px;
+  height: 40px;
+  margin: 50px;
+  background-color: #f8cdd6;
+  border-radius: 30px;
+}
+
+#title-logo {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  text-align: left;
+  font-family: "Azeret Mono", monospace;
+  border: 3px solid black;
+}
+
+#logo-liner {
+  width: 110px;
+  height: 110px;
+  padding: 5px;
+}
