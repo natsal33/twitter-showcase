@@ -1,4 +1,4 @@
-#createdByBar {
+#footer {
   color: white;
   width: 100%;
   z-index: 2;
@@ -7,6 +7,8 @@
   transition: 0.5s ease;
   overflow-x: hidden;
   align-items: center;
+  position: absolute;
+  bottom: 0;
 }
 
 #createdByText {

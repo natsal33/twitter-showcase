@@ -1,22 +1,34 @@
-import logo from "./logo.svg";
-import "./App.css";
-import NavBar from "./NavBar.js";
-import Tweets from "./Tweets.js";
-import CreatedBy from "./CreatedBy.js";
+import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import Root from "./routes/root";
+import ErrorPage from "./error-page";
+import Home from "./routes/home";
+import RandomTweets from "./routes/random-tweets";
+import TweetSearch from "./routes/tweet-search";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "random-tweets",
+        element: <RandomTweets />,
+      },
+      {
+        path: "tweet-search",
+        element: <TweetSearch />,
+      },
+    ],
+  },
+]);
 
 const App = () => {
-  return (
-    <div className="App">
-      <div className="heading-navbar">
-        <NavBar />
-      </div>
-      <div className="heading">
-        <h1> Home -- About</h1>
-      </div>
-      <Tweets />
-      <CreatedBy />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
