@@ -3,11 +3,11 @@
   width: 100%;
   z-index: 2;
   padding: 10px;
-  background-color: #5cbdb9;
+  background-color: #84bebd;
   transition: 0.5s ease;
   overflow-x: hidden;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 

@@ -1,18 +1,6 @@
 #root {
   text-align: center;
-  background-color: beige;
-}
-
-.heading-navbar {
-  width: 100%;
-}
-
-.heading {
-  color: white;
-  width: 100%;
-  height: 100px;
-  position: relative;
-  background-color: #5cbdb9;
+  background-color: rgb(255, 255, 248);
 }
 
 .NavBar {
@@ -23,7 +11,8 @@
   position: sticky;
   display: flex;
   z-index: 1;
-  background-color: beige;
+  background-color: rgb(255, 255, 248);
+  border-bottom: 3px solid black;
   transition: 0.5s ease;
   padding: 15px;
 }
@@ -31,6 +20,7 @@
 #navBarItemBox {
   display: inline-flex;
   align-items: center;
+  margin-left: 120px;
 }
 
 .navBarItem {
@@ -40,16 +30,15 @@
   font-weight: 700;
   text-align: center;
   padding: 10px 60px;
-  height: 40px;
   margin: 50px;
-  background-color: #f8cdd6;
+  background-color: #fdd1df;
   border-radius: 30px;
 }
 
 #title-logo {
   width: 120px;
   height: 120px;
-  display: flex;
+  position: fixed;
   text-align: left;
   font-family: "Azeret Mono", monospace;
   border: 3px solid black;
@@ -59,4 +48,27 @@
   width: 110px;
   height: 110px;
   padding: 5px;
+}
+
+.page {
+}
+
+.headingOutline {
+  display: flex;
+  justify-content: center;
+}
+
+.heading {
+  color: white;
+  width: 75%;
+  height: 100px;
+  margin: 0;
+  border-radius: 10px;
+  background-color: #84bebd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageBody {
 }
