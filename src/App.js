@@ -4,6 +4,7 @@ import ErrorPage from "./error-page";
 import Home from "./routes/home";
 import RandomTweets from "./routes/random-tweets";
 import TweetSearch from "./routes/tweet-search";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+  const url = "http://127.0.0.1:5000/api/get_tweet_by_search/nasa";
+  axios.get(url).then((res) => {
+    console.log(res);
+  });
   return <RouterProvider router={router} />;
 };
 
