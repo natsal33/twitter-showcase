@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 import requests
 import urllib.parse
 
-app = Flask(__name__, static_folder="build/", static_url_path="/")
+app = Flask(__name__, static_folder="../build", static_url_path="/")
 # CORS(app)
 
 
@@ -12,9 +12,9 @@ headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Au
 twitter_search_url="https://api.twitter.com/1.1/search/tweets.json";
 
 # localhost:8000
-@app.route('/api', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
-    return app.send_static_file('./build/index.html')
+    return app.send_static_file('index.html')
 
 @app.route('/api/andy', methods=['GET'])
 def get_andy(search_term):
