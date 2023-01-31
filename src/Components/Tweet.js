@@ -1,8 +1,32 @@
 import "../Components/Tweet.css";
+import { useEffect } from "react";
 
 const Tweet = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.setAttribute("src", "https://platform.twitter.com/widgets.js");
+    document.getElementsByClassName("tweetBox")[0].appendChild(script);
+  }, []);
+
+  const user = "NASA";
+  const tweet_id = "1619779987204149249";
+  const tweet_url = `https://twitter.com/${user}/status/${tweet_id}`;
+
   return (
     <div className="tweetBox">
+      <blockquote className="twitter-tweet">
+        <a href={tweet_url}></a>
+      </blockquote>{" "}
+    </div>
+  );
+};
+
+export default Tweet;
+
+// embedded tweet reference
+{
+  /* </div>
+        <div className="tweetBox">
       <blockquote class="twitter-tweet">
         <p lang="en" dir="ltr">
           Sunsets don&#39;t get much better than this one over{" "}
@@ -28,8 +52,5 @@ const Tweet = () => {
         src="https://platform.twitter.com/widgets.js"
         charset="utf-8"
       ></script>
-    </div>
-  );
-};
-
-export default Tweet;
+    </div> */
+}

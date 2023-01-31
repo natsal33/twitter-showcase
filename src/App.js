@@ -29,10 +29,10 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const url = "http://127.0.0.1:5000/api/get_tweet_by_search/nasa";
-  axios.get(url).then((res) => {
-    console.log(res);
-  });
+  const url = "http://127.0.0.1:5000/api/get_tweet_by_search/@nasa";
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => console.log(data));
   return <RouterProvider router={router} />;
 };
 

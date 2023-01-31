@@ -14,6 +14,7 @@ export default function TweetSearch() {
         <Form id="search-form">
           <span id="searchTitle">Find your Tweety!</span>
           <input id="userSearchInput" placeholder="@NASA"></input>
+          <button type="submit"> search </button>
         </Form>
         <Tweet />
       </div>
