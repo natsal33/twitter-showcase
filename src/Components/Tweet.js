@@ -1,15 +1,15 @@
 import "../Components/Tweet.css";
 import { useEffect } from "react";
 
-const Tweet = () => {
+function Tweet({ tweet_data }) {
   useEffect(() => {
     const script = document.createElement("script");
     script.setAttribute("src", "https://platform.twitter.com/widgets.js");
     document.getElementsByClassName("tweetBox")[0].appendChild(script);
   }, []);
 
-  const user = "NASA";
-  const tweet_id = "1619779987204149249";
+  const user = tweet_data.user.screen_name;
+  const tweet_id = tweet_data.id_str;
   const tweet_url = `https://twitter.com/${user}/status/${tweet_id}`;
 
   return (
@@ -19,7 +19,7 @@ const Tweet = () => {
       </blockquote>{" "}
     </div>
   );
-};
+}
 
 export default Tweet;
 

@@ -3,7 +3,7 @@ import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Home from "./routes/home";
 import RandomTweets from "./routes/random-tweets";
-import TweetSearch from "./routes/tweet-search";
+import TweetSearch, { submitSearch } from "./routes/tweet-search";
 import axios from "axios";
 
 const router = createBrowserRouter([
@@ -23,16 +23,13 @@ const router = createBrowserRouter([
       {
         path: "tweet-search",
         element: <TweetSearch />,
+        action: submitSearch,
       },
     ],
   },
 ]);
 
 const App = () => {
-  const url = "http://127.0.0.1:5000/api/get_tweet_by_search/@nasa";
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => console.log(data));
   return <RouterProvider router={router} />;
 };
 

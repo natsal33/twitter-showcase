@@ -1,20 +1,23 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Tweet from "./Tweet.js";
 
-const TweetFetcher = (searchInput) => {
+function TweetFetcher({ searchInput, resultCount }) {
   const [tweetResultArray, setTweetResultArray] = useState([]);
-  const url = `/api/get_tweet_by_search/${searchInput.toString()}`;
+  const url = `http://127.0.0.1:5000/api/get_tweet_by_search?search=${searchInput}&count=${resultCount}`;
+
+  console.log(url);
 
   useEffect(() => {
-    getData();
-  }, []);
-
-  async function getData() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTweetResultArray(data));
-  }
+  }, [searchInput]);
 
-  return tweetResultArray;
-};
+  const tweets_to_display = tweetResultArray.map((tweet) => {
+    return <Tweet key={tweet.id_str} tweet_data={tweet} />;
+  });
+
+  return <div>{tweets_to_display}</div>;
+}
 
 export default TweetFetcher;
