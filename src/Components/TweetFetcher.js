@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Tweet from "./Tweet.js";
 
-function TweetFetcher({ searchInput, resultCount }) {
+function TweetFetcher({ searchInput, searchBy, resultCount }) {
   const [tweetResultArray, setTweetResultArray] = useState([]);
-  const url = `http://127.0.0.1:5000/api/get_tweet_by_search?search=${searchInput}&count=${resultCount}`;
+  const url = `http://127.0.0.1:5000/api/get_tweet_by_search?search=${searchInput}&count=${resultCount}&searchBy=${searchBy}`;
 
   console.log(url);
 

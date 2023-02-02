@@ -15,6 +15,7 @@ function Tweet({ tweet_data }) {
   return (
     <div className="tweetBox">
       <blockquote className="twitter-tweet">
+        <h1>Tweet</h1>
         <a href={tweet_url}></a>
       </blockquote>{" "}
     </div>

@@ -6,7 +6,7 @@ import TweetFetcher from "../Components/TweetFetcher";
 
 export default function TweetSearch() {
   const [userInput, setUserInput] = useState("");
-  const [resultCount, setResultCount] = useState(10);
+  const [resultCount, setResultCount] = useState(5);
   const [searchSubmit, setSearchSubmit] = useState(false);
   const data = useActionData();
 
@@ -24,12 +24,17 @@ export default function TweetSearch() {
       </div>
       <div className="pageBody">
         <Form id="search-form" method="post" action="/tweet-search">
-          <span id="searchTitle">Find your Tweety!</span>
+          <br />
+          <select name="searchBy" id="searchBy">
+            <option value="content">Search by Content</option>
+            <option value="screen_name">Search By User</option>
+          </select>
           <input
             id="userSearchInput"
             name="userSearchInput"
             placeholder="@NASA"
           ></input>
+
           <button type="submit"> search </button>
         </Form>
 
@@ -37,6 +42,7 @@ export default function TweetSearch() {
           <TweetFetcher
             searchInput={data.get("userSearchInput")}
             resultCount={resultCount}
+            searchBy={data.get("searchBy")}
           />
         )}
       </div>
@@ -46,11 +52,11 @@ export default function TweetSearch() {
 
 export const submitSearch = async ({ request }) => {
   const data = await request.formData();
-  const userSearchInput = data.get("userSearchInput");
+  // const userSearchInput = data.get("userSearchInput");
 
-  if (userSearchInput.length < 1) {
-    return { error: "User search input is empty" };
-  }
+  // if (userSearchInput.length < 1) {
+  //   return { error: "User search input is empty" };
+  // }
 
   return data;
 };
