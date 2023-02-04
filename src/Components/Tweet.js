@@ -1,35 +1,30 @@
 import "../Components/Tweet.css";
+import { useEffect } from "react";
 
-const Tweet = () => {
+function Tweet({ tweetData }) {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.setAttribute("src", "https://platform.twitter.com/widgets.js");
+    document.getElementsByClassName("tweetBox")[0].appendChild(script);
+  }, []);
+
+  const screen_name = tweetData.user.screen_name;
+  const user_name = tweetData.user.name;
+  const tweet_id = tweetData.id_str;
+  const text = tweetData.text;
+  const tweet_url = `https://twitter.com/${screen_name}/status/${tweet_id}`;
+
   return (
     <div className="tweetBox">
       <blockquote class="twitter-tweet">
         <p lang="en" dir="ltr">
-          Sunsets don&#39;t get much better than this one over{" "}
-          <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">
-            @GrandTetonNPS
-          </a>
-          .{" "}
-          <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">
-            #nature
-          </a>{" "}
-          <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">
-            #sunset
-          </a>{" "}
-          <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a>
+          {text}
         </p>
-        &mdash; US Department of the Interior (@Interior){" "}
-        <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">
-          May 5, 2014
-        </a>
+        &mdash; {user_name} ({screen_name}){" "}
+        <a href={tweet_url}>{tweetData.created_at}</a>
       </blockquote>{" "}
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
-      ></script>
     </div>
   );
-};
+}
 
 export default Tweet;
