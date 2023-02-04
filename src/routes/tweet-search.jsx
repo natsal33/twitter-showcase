@@ -1,19 +1,59 @@
 import Tweet from "../Components/Tweet";
-import { Form, redirect, useActionData } from "react-router-dom";
+import { Form, useActionData } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./tweet-search.css";
-import TweetFetcher from "../Components/TweetFetcher";
 
 export default function TweetSearch() {
-  const [userInput, setUserInput] = useState("");
-  const [resultCount, setResultCount] = useState(5);
-  const [searchSubmit, setSearchSubmit] = useState(false);
-  const data = useActionData();
+  const [results, setResults] = useState([1]);
+  const formData = useActionData();
+  const resultCount = 10;
 
-  const handleSubmit = (e) => {
-    setSearchSubmit(true);
-    e.preventDefault();
-  };
+  useEffect(() => {
+    if (formData && formData.get("clientInput")) {
+      if (formData.get("searchBy") === "screen_name") {
+        const userSearchURL = `/api/find_tweets_by_user?search=${formData.get(
+          "clientInput"
+        )}&count=${resultCount}`;
+        fetch(userSearchURL)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.length > 0) {
+              const tweetData = data.map((tweet) => {
+                return <Tweet key={tweet.id_str} tweetData={tweet} />;
+              });
+              setResults(tweetData);
+            } else {
+              const noUserResults = (
+                <h2>There is no Twitter user by that name.</h2>
+              );
+              setResults(noUserResults);
+            }
+          });
+      } else {
+        const tweetSearchURL = `/api/find_tweets_by_content?search=${formData.get(
+          "clientInput"
+        )}&count=${resultCount}`;
+        fetch(tweetSearchURL)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.length > 0) {
+              const tweetData = data.map((tweet) => {
+                return <Tweet key={tweet.id_str} tweetData={tweet} />;
+              });
+              setResults(tweetData);
+            } else {
+              const noContentResults = (
+                <h2>There is no tweet content to match.</h2>
+              );
+              setResults(noContentResults);
+            }
+          });
+      }
+    } else {
+      const searchForSomething = <h2>Search for something :)</h2>;
+      setResults(searchForSomething);
+    }
+  }, [formData]);
 
   return (
     <div className="page">
@@ -30,33 +70,20 @@ export default function TweetSearch() {
             <option value="screen_name">Search By User</option>
           </select>
           <input
-            id="userSearchInput"
-            name="userSearchInput"
+            id="clientInput"
+            name="clientInput"
             placeholder="@NASA"
           ></input>
-
           <button type="submit"> search </button>
         </Form>
-
-        {data && (
-          <TweetFetcher
-            searchInput={data.get("userSearchInput")}
-            resultCount={resultCount}
-            searchBy={data.get("searchBy")}
-          />
-        )}
+        <div>{results}</div>
       </div>
     </div>
   );
 }
 
 export const submitSearch = async ({ request }) => {
-  const data = await request.formData();
-  // const userSearchInput = data.get("userSearchInput");
+  const formData = await request.formData();
 
-  // if (userSearchInput.length < 1) {
-  //   return { error: "User search input is empty" };
-  // }
-
-  return data;
+  return formData;
 };
