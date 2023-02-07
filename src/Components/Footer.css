@@ -1,17 +1,37 @@
-#footer {
+#Footer {
   color: white;
   width: 100%;
-  z-index: 2;
-  padding: 10px;
+  padding: 5px;
   background-color: #84bebd;
   transition: 0.5s ease;
-  overflow-x: hidden;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
+  display: flex;
+  justify-content: center;
 }
 
 #createdByText {
   font-size: 12px;
-  align-content: center;
+  text-align: center;
+  line-height: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+@media only screen and (min-width: 700px) {
+  #Footer {
+    color: white;
+    width: 100%;
+    padding: 5px;
+    background-color: #84bebd;
+    transition: 0.5s ease;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+  }
+
+  #createdByText {
+    font-size: 12px;
+    text-align: center;
+    line-height: 14px;
+    font-family: "Poppins", sans-serif;
+  }
 }

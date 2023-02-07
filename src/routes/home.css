@@ -1,4 +1,14 @@
 #homeImage {
-  height: 500px;
+  grid-row: 1;
+  grid-column: 3/11;
   border-radius: 2em;
+  width: 100%;
+  display: flex;
+}
+
+#spiel {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  grid-column: 3/11;
+  text-align: center;
 }

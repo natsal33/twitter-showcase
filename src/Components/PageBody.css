@@ -1,0 +1,27 @@
+#PageBody {
+  font-family: "Poppins", sans-serif;
+}
+
+.page {
+}
+
+.headingOutline {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.heading {
+  color: white;
+  background-color: #84bebd;
+  width: 100%;
+  font-size: 20px;
+}
+
+.pageBody {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+  grid-auto-rows: (90px, 1fr);
+}
