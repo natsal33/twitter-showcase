@@ -37,7 +37,7 @@ export default function RandomTweets() {
     <div className="page">
       <div className="headingOutline">
         <div className="heading">
-          <h1>Random Tweets</h1>
+          <h1>Tweet Surprise!</h1>
         </div>
       </div>
       <div className="pageBody" id="randomTweetBox">
