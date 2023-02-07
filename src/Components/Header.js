@@ -18,7 +18,7 @@ function Header() {
           Tweet Search
         </NavLink>
         <NavLink to={"/random-tweets"} className="navBarItem">
-          Random Tweets
+          Tweet Surprise!
         </NavLink>
       </nav>
     </div>
