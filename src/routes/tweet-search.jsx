@@ -76,7 +76,10 @@ export default function TweetSearch() {
           ></input>
           <button type="submit"> search </button>
         </Form>
-        <div>{results}</div>
+        <p id="renderWarning">
+          Please allow a few seconds for results to render.
+        </p>
+        <div id="search-results">{results}</div>
       </div>
     </div>
   );

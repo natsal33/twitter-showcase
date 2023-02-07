@@ -1,5 +1,6 @@
 #PageBody {
   font-family: "Poppins", sans-serif;
+  min-height: 100%;
 }
 
 .page {

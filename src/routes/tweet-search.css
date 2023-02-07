@@ -1,4 +1,9 @@
-#userSearchInput {
+#search-form {
+  font-family: "Poppins", sans-serif;
+  grid-column: 4/10;
+  width: 370px;
+  grid-row: 1;
+  display: inline-flex;
   font-size: 1rem;
   font-family: inherit;
   border: none;
@@ -10,7 +15,29 @@
   margin: 5px;
 }
 
+#searchBy {
+  font-family: "Poppins", sans-serif;
+}
+
+#clientInput {
+  font-family: "Poppins", sans-serif;
+}
+
 #searchTitle {
   font-size: 18px;
   font-weight: 700;
+}
+
+#renderWarning {
+  padding: 0;
+  margin: 0;
+  grid-row: 2;
+  grid-column: 3/11;
+  text-align: center;
+}
+
+#search-results {
+  text-align: center;
+  grid-column: 3/11;
+  grid-row: 3;
 }
