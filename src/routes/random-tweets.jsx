@@ -40,8 +40,8 @@ export default function RandomTweets() {
           <h1>Tweet Surprise!</h1>
         </div>
       </div>
-      <div className="pageBody" id="randomTweetBox">
-        {results}
+      <div className="pageBody">
+        <div id="randomTweetBox">{results}</div>
       </div>
     </div>
   );

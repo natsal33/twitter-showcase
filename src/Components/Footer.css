@@ -1,39 +1,41 @@
 #Footer {
-  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  color: white;
   padding: 5px;
   background-color: #98c7c6;
   transition: 0.5s ease;
   display: flex;
   justify-content: center;
-  position: fixed;
-  bottom: 0;
 }
 
 #createdByText {
   font-size: 12px;
   text-align: center;
-  line-height: 14px;
+  line-height: 8px;
   font-family: "Poppins", sans-serif;
 }
 
 @media only screen and (min-width: 700px) {
   #Footer {
-    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    color: white;
     padding: 5px;
     background-color: #98c7c6;
     transition: 0.5s ease;
     display: flex;
     justify-content: center;
-    position: fixed;
-    bottom: 0;
   }
 
   #createdByText {
     font-size: 12px;
     text-align: center;
-    line-height: 14px;
+    line-height: 8px;
     font-family: "Poppins", sans-serif;
   }
 }

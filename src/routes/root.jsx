@@ -9,8 +9,8 @@ export default function Root() {
       <div className="content">
         <Header />
         <PageBody />
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
