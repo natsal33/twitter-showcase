@@ -1,14 +1,14 @@
 import json
-from flask import Flask, jsonify, request
+from flask import Flask, request
 from flask_cors import CORS
-import requests
-import urllib.parse
+import requests, os
 
 app = Flask(__name__, static_folder="../build", static_url_path="/")
 CORS(app)
 
+bearer_token = os.environ.get('BEARER_TOKEN')
 
-headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAAKEqlAEAAAAAY3hQj7IzoFuacC7s%2FdQy1bRFU3c%3DknJZmbrFQSh7CEr9r6dZeJ6LdREU3b4jFXfEGAueadLUX3e6YB' }
+headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': f'Bearer {bearer_token}' }
 
 
 # localhost:8000
