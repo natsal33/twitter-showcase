@@ -30,6 +30,23 @@ The purpose of this project was to learn how to use Python Flask to build an API
 
 <br>
 
+## Installation
+
+### Front-end
+
+1. From root directory run `npm install`
+2. Run `npm start`
+
+### Back-end
+
+1. Open up separate terminal
+2. Run `cd api`
+3. Run `py -m venv .venv`
+4. Run `source venv/bin/activate`
+5. Run `pip install -r requirements.txt`
+6. Create .env file and add key value pair `BEARER_TOKEN = XXX`
+7. Run `flask run`
+
 Author
 
-- **Natalie Salazar** - Software Developer
+- **Natalie Salazar** - Software Developer [LinkedIn](https://www.linkedin.com/in/natalie-m-salazar/)

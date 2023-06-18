@@ -16,7 +16,7 @@ function Tweet({ tweetData }) {
 
   return (
     <div className="tweetBox">
-      <blockquote class="twitter-tweet">
+      <blockquote className="twitter-tweet">
         <p lang="en" dir="ltr">
           {text}
         </p>
