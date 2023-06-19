@@ -2,6 +2,7 @@ import Tweet from "../Components/Tweet";
 import { Form, useActionData } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./tweet-search.css";
+import axios from "axios";
 
 export default function TweetSearch() {
   const [results, setResults] = useState([1]);
@@ -9,51 +10,46 @@ export default function TweetSearch() {
   const resultCount = 10;
 
   useEffect(() => {
-    if (formData && formData.get("clientInput")) {
-      if (formData.get("searchBy") === "screen_name") {
-        const userSearchURL = `/api/find_tweets_by_user?search=${formData.get(
-          "clientInput"
-        )}&count=${resultCount}`;
-        fetch(userSearchURL)
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.length > 0) {
-              const tweetData = data.map((tweet) => {
-                return <Tweet key={tweet.id_str} tweetData={tweet} />;
-              });
-              setResults(tweetData);
-            } else {
-              const noUserResults = (
-                <h2>There is no Twitter user by that name.</h2>
-              );
-              setResults(noUserResults);
-            }
-          });
-      } else {
-        const tweetSearchURL = `/api/find_tweets_by_content?search=${formData.get(
-          "clientInput"
-        )}&count=${resultCount}`;
-        fetch(tweetSearchURL)
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.length > 0) {
-              const tweetData = data.map((tweet) => {
-                return <Tweet key={tweet.id_str} tweetData={tweet} />;
-              });
-              setResults(tweetData);
-            } else {
-              const noContentResults = (
-                <h2>There is no tweet content to match.</h2>
-              );
-              setResults(noContentResults);
-            }
-          });
-      }
-    } else {
-      const searchForSomething = <h2>Search for something :)</h2>;
-      setResults(searchForSomething);
-    }
+    tweetSearch();
   }, [formData]);
+
+  async function tweetSearch() {
+    if (!formData || !formData.get("clientInput")) {
+      setResults(<h2>Search for something :)</h2>);
+      return;
+    }
+
+    const searchType = formData.get("searchBy");
+    const searchParam = formData.get("clientInput");
+    const searchURL =
+      searchType === "screen_name"
+        ? `/api/find_tweets_by_user?search=${searchParam}&count=${resultCount}`
+        : `/api/find_tweets_by_content?search=${searchParam}&count=${resultCount}`;
+
+    try {
+      const response = await axios.get(searchURL);
+      const tweetData = response.data.map((tweet) => (
+        <Tweet key={tweet.id_str} tweetData={tweet} />
+      ));
+      if (tweetData.length > 0) {
+        setResults(tweetData);
+      } else {
+        const noResults =
+          searchType === "screen_name" ? (
+            <h2>There is no Twitter user by that name.</h2>
+          ) : (
+            <h2>There is no tweet content to match.</h2>
+          );
+        setResults(noResults);
+      }
+    } catch (error) {
+      console.log(error);
+      const errorMessage = (
+        <h2>There was an error loading hte search results.</h2>
+      );
+      setResults(errorMessage);
+    }
+  }
 
   return (
     <div className="page">
