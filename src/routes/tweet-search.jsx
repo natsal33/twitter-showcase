@@ -45,7 +45,7 @@ export default function TweetSearch() {
     } catch (error) {
       console.log(error);
       const errorMessage = (
-        <h2>There was an error loading hte search results.</h2>
+        <h2>There was an error loading the search results.</h2>
       );
       setResults(errorMessage);
     }

@@ -1,10 +1,9 @@
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Home from "./routes/home";
 import RandomTweets from "./routes/random-tweets";
 import TweetSearch, { submitSearch } from "./routes/tweet-search";
-import axios from "axios";
 
 const router = createBrowserRouter([
   {

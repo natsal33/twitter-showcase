@@ -1,7 +1,6 @@
 import Tweet from "../Components/Tweet";
 import { useEffect, useState } from "react";
 import "./random-tweets.css";
-import TweetDisplay from "../Components/TweetDisplay";
 
 export default function RandomTweets() {
   const [results, setResults] = useState([]);

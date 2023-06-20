@@ -6,7 +6,8 @@ import requests, os
 app = Flask(__name__, static_folder="../build", static_url_path="/")
 CORS(app)
 
-bearer_token = os.environ.get('BEARER_TOKEN')
+# bearer_token = os.environ.get('BEARER_TOKEN')
+bearer_token = 'AAAAAAAAAAAAAAAAAAAAAKEqlAEAAAAA%2BcQDglRlatUgsPUVVVqPevF2n8o%3Db5KFfwx2D0isN7hJN4EvlXD7hZRC2hfWCXMJK8CN5xXss8ID5y'
 
 headers = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': f'Bearer {bearer_token}' }
 
