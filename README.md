@@ -43,7 +43,7 @@ The purpose of this project was to learn how to use Python Flask to build an API
 2. Run `cd api`
 3. Run `py -m venv .venv`
 4. Run `source venv/bin/activate`
-5. Run `pip install -r requirements.txt`
+5. Run `pip install -r ../requirements.txt`
 6. Create .env file and add key value pair `BEARER_TOKEN = XXX`
 7. Run `flask run`
 
