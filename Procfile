@@ -1,1 +1,1 @@
-web: gunicorn --chdir ./api --bind 127.0.0.1:8080 app:app
+web: gunicorn --chdir ./api app:app
