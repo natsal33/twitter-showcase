@@ -1,5 +1,7 @@
 # Find Your Tweety!
 
+## UPDATE: Due to the changes in Twitter Developer Platform payment tiers, Find Your Tweety no longer can search or display tweets or users. The app is not non-functional and exists purely as a GitHub piece for my portfolio.
+
 <br>
 Find Your Tweety (FYT) is your new off-platform search engine to find the most recent Twitter Tweets by content, user timelines, hashtags, and user mentions. There's also a Tweet Surprise! page that showcases a random tweet from one of my top 5 favorite Twitter handles!
 <br>
