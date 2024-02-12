@@ -4,9 +4,6 @@
 
 <br>
 Find Your Tweety (FYT) is your new off-platform search engine to find the most recent Twitter Tweets by content, user timelines, hashtags, and user mentions. There's also a Tweet Surprise! page that showcases a random tweet from one of my top 5 favorite Twitter handles!
-<br>
-
-[Click here to to use!](https://find-your-tweety.herokuapp.com/)
 
 <br>
 
@@ -49,6 +46,27 @@ The purpose of this project was to learn how to use Python Flask to build an API
 6. Create .env file and add key value pair `BEARER_TOKEN = XXX`
 7. Run `flask run`
 
-Author
+## Tech Stack
+
+- Frontend:
+
+  - React
+  - JavaScript
+  - HTML/CSS
+  - React-Bootstrap
+
+- Backend:
+  - Flask (Python)
+  - Twitter API OAuth 2.0
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+
+## Contact
+
+If you have any questions or suggestions, feel free to contact me at natmsal33@gmail.com. I'd love to hear from you!
+
+## Author
 
 - **Natalie Salazar** - Software Developer [LinkedIn](https://www.linkedin.com/in/natalie-m-salazar/)
